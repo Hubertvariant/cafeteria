@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar</title>
+    <style>
+    /* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo do corpo */
+body {
+    background-color: rgb(144, 100, 30);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+}
+
+/* Container principal */
+section {
+    background-color: #fff;
+    padding: 15px;
+    width: 70%;
+    height: 60%;
+    border-radius: 15px;
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    text-align: left;
+}
+
+/* Título */
+section h1 {
+    text-align: center;
+}
+
+/* Formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+/* Inputs e botões */
+form input{
+    width: 100%;
+    padding: 15px;
+    border-radius: 20px;
+    border: 2px solid rgba(144, 100, 30, 0.4);
+}
+
+/* Botão fora do formulário (se houver) */
+button {
+    width: 100%;
+    padding: 15px;
+    border-radius: 20px;
+    border: 2px solid rgba(144, 100, 30, 0.4);
+}
+    </style>
+</head>
+<body>
+    <section>
+        <h1>Acessar Conta</h1>
+        <form>
+            <input type="email" id="login-email" placeholder="E-mail" required>
+            <input type="password" id="login-password" placeholder="Senha" required>
+            <div>
+                <label for="remember">
+                    <input type="checkbox" id="remember">
+                    Lembrar de mim
+                </label>
+                <a href="#" class="forgot-password">Esqueceu a senha?</a>
+            </div>
+            <button type="submit" onclick="loginEntrar()">ENTRAR</button>
+        </form>
+        <button onclick="window.location.href='cadastro.html'">CADASTRAR</button>
+    </section>
+</body>
+<script>
+    function loginEntrar(){
+        const email = window.document.querySelector('input#login-email').value
+        const password = window.document.querySelector('input#login-password').value
+
+        if(email != '' && password != ''){
+            window.location.href='home.html'
+            console.log('entrou')
+        }
+    }
+</script>
+</html>
