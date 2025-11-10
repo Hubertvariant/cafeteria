@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Conta | CAFÉ para BAIANO</title>
+    <style>
+        /* Cores da Cafeteria (Consistência) */
+        :root {
+            --bege-suave: #f5f5dc;
+            --marrom-medio: #a0522d;
+            --marrom-escuro: #4b3621;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Estilo do corpo */
+        body {
+            background-color: var(--bege-suave);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 15px;
+        }
+
+        /* Cabeçalho - Reutilizado */
+        header {
+            background-color: var(--marrom-escuro);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 1.8em;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Menu de Navegação */
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: var(--bege-suave);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--marrom-medio);
+        }
+        
+        /* Container Principal da Conta */
+        main {
+            background-color: #fff;
+            padding: 25px;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto; /* Centraliza */
+            flex-grow: 1;
+            border-radius: 10px;
+            box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        main h2 {
+            color: var(--marrom-medio);
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        /* Abas de Navegação (Menu Lateral/Superior) */
+        .account-nav {
+            display: flex;
+            justify-content: center;
+            border-bottom: 2px solid #ccc;
+            margin-bottom: 20px;
+        }
+
+        .account-nav button {
+            background: none;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1.1em;
+            color: #888;
+            transition: color 0.3s, border-bottom 0.3s;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px; /* Ajuste para a linha do border-bottom */
+            font-weight: 600;
+        }
+
+        .account-nav button:hover, .account-nav button.active {
+            color: var(--marrom-medio);
+            border-bottom: 3px solid var(--marrom-medio);
+        }
+
+        /* Conteúdo das Abas */
+        .tab-content {
+            padding: 15px;
+            color: var(--marrom-escuro);
+        }
+
+        /* Estilo para Perfis */
+        .profile-info p {
+            margin-bottom: 10px;
+        }
+        
+        .profile-info strong {
+            display: inline-block;
+            width: 120px;
+            font-weight: 700;
+            color: var(--marrom-medio);
+        }
+        
+        /* Estilo para Histórico de Pedidos */
+        .order-history {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .order-history li {
+            background-color: var(--bege-suave);
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 5px solid var(--marrom-medio);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+        
+        .order-history h4 {
+            margin-bottom: 5px;
+            color: var(--marrom-escuro);
+        }
+
+        /* Rodapé - Reutilizado */
+        footer {
+            background-color: var(--marrom-escuro);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px 10px 0 0;
+            font-size: 0.8em;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CAFÉ para BAIANO</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Início</a></li>
+                <li><a href="cardapio.html">Cardápio</a></li>
+                <li><a href="localizacao.html">Localização</a></li>
+                <li><a href="entrar.html" style="color: var(--marrom-medio);">Conta</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Bem-vindo à sua Conta</h2>
+
+        <div class="account-nav">
+            <button class="active" onclick="showTab('perfil', this)">Perfil</button>
+            <button onclick="showTab('pedidos', this)">Histórico de Pedidos</button>
+            <button onclick="showTab('configuracoes', this)">Configurações</button>
+        </div>
+
+        <div id="perfil" class="tab-content">
+            <h3>Seu Perfil</h3>
+            <div class="profile-info">
+                <p><strong>Nome:</strong> João da Silva</p>
+                <p><strong>E-mail:</strong> joao.silva@email.com</p>
+                <p><strong>Telefone:</strong> (71) 99999-9999</p>
+                <p><strong>Membro Desde:</strong> Setembro de 2024</p>
+            </div>
+            <button style="
+                background-color: var(--marrom-medio); 
+                color: white; 
+                padding: 8px 15px; 
+                border: none; 
+                border-radius: 5px; 
+                cursor: pointer;
+                margin-top: 15px;
+                font-weight: 600;
+            " onclick="window.location.href='cadastro.html'">Editar Informações</button>
+        </div>
+
+        <div id="pedidos" class="tab-content" style="display: none;">
+            <h3>Seus Últimos Pedidos</h3>
+            <ul class="order-history">
+                <li>
+                    <h4>Pedido #1005 (05/Nov) - <span style="color: green;">Entregue</span></h4>
+                    <p>Itens: 1x Expresso Intenso, 1x Bolo de Rolo. Total: R$ 22,00</p>
+                </li>
+                 <li>
+                    <h4>Pedido #1004 (28/Out) - <span style="color: green;">Entregue</span></h4>
+                    <p>Itens: 1x Café com Leite de Coco, 1x Cuscuz Recheado. Total: R$ 27,00</p>
+                </li>
+            </ul>
+        </div>
+
+        <div id="configuracoes" class="tab-content" style="display: none;">
+            <h3>Configurações da Conta</h3>
+            <p><strong>Assinatura de Newsletter:</strong> Ativa</p>
+            <p><strong>Notificações por E-mail:</strong> Ativas</p>
+            <p><a href="#" style="color: var(--marrom-medio); text-decoration: none;">Alterar Senha</a></p>
+            <p><a href="#" style="color: #cc0000; text-decoration: none;">Excluir Conta</a></p>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Área exclusiva para clientes do CAFÉ para BAIANO.</p>
+        <p>&copy; 2025 CAFÉ para BAIANO.</p>
+    </footer>
+
+    <script>
+        function showTab(tabId, clickedButton) {
+            // Esconde todos os conteúdos de abas
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.style.display = 'none';
+            });
+
+            // Remove o estado 'active' de todos os botões
+            const buttons = document.querySelectorAll('.account-nav button');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Exibe o conteúdo da aba clicada
+            document.getElementById(tabId).style.display = 'block';
+
+            // Define o botão clicado como 'active'
+            if (clickedButton) {
+                clickedButton.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>

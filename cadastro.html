@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta | CAFÉ para BAIANO</title>
+    <style>
+        /* Cores da Cafeteria:
+           - #f5f5dc: Bege Suave (Fundo)
+           - #a0522d: Marrom Médio (Destaque)
+           - #4b3621: Marrom Escuro (Texto/Título)
+        */
+        
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Estilo do corpo - Fundo Suave */
+        body {
+            background-color: #f5f5dc; 
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+        }
+
+        /* Container principal - Reutilizado do Login */
+        section {
+            background-color: #fff;
+            padding: 30px; 
+            width: 90%; 
+            max-width: 450px; /* Um pouco mais largo para acomodar mais campos */
+            border-radius: 10px;
+            box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 20px; 
+            align-items: center;
+            text-align: left;
+        }
+
+        /* Título */
+        section h1 {
+            text-align: center;
+            color: #4b3621;
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+
+        /* Formulário */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        /* Inputs */
+        form input{
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        form input:focus {
+            border-color: #a0522d;
+            outline: none;
+            box-shadow: 0 0 5px rgba(160, 82, 45, 0.3);
+        }
+        
+        /* Mensagem de Política */
+        .policy-text {
+            font-size: 0.9em;
+            color: #666;
+            text-align: center;
+        }
+        
+        .policy-text a {
+            color: #a0522d;
+            text-decoration: none;
+        }
+
+        /* Botão Principal (CADASTRAR) */
+        form button[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: none;
+            background-color: #a0522d; /* Cor principal de ação: Marrom médio */
+            color: white;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 5px;
+        }
+
+        form button[type="submit"]:hover {
+            background-color: #4b3621; /* Marrom escuro no hover */
+        }
+
+        /* Botão Secundário (JÁ TENHO CONTA) */
+        section button {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #a0522d;
+            background-color: transparent;
+            color: #a0522d;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        section button:hover {
+            background-color: #f0e0d6; /* Bege claro no hover */
+            color: #4b3621;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h1>Criar Conta</h1>
+        <form onsubmit="cadastrarUsuario(event)">
+            <input type="text" id="cadastro-nome" placeholder="Nome Completo" required>
+            
+            <input type="email" id="cadastro-email" placeholder="E-mail" required>
+            
+            <input type="password" id="cadastro-password" placeholder="Crie uma Senha" required>
+            
+            <input type="password" id="cadastro-confirm-password" placeholder="Confirme a Senha" required>
+            
+            <div class="policy-text">
+                Ao clicar em CADASTRAR, você aceita nossa <a href="#">Política de Privacidade</a>.
+            </div>
+            
+            <button type="submit">CADASTRAR</button>
+        </form>
+        <button onclick="window.location.href='index.html'">JÁ TENHO CONTA</button>
+    </section>
+</body>
+<script>
+    function cadastrarUsuario(event){
+        event.preventDefault(); // Previne o envio padrão do formulário
+
+        const nome = document.querySelector('input#cadastro-nome').value;
+        const email = document.querySelector('input#cadastro-email').value;
+        const senha = document.querySelector('input#cadastro-password').value;
+        const confirmaSenha = document.querySelector('input#cadastro-confirm-password').value;
+
+        // Validação de Senhas
+        if (senha !== confirmaSenha) {
+            alert('Erro: As senhas não coincidem. Por favor, verifique.');
+            return; 
+        }
+
+        // Validação básica (assumindo que todos os campos estão preenchidos devido ao 'required')
+        if(nome && email && senha){ 
+            console.log('Novo usuário cadastrado (simulado):', nome, email);
+            
+            alert('Cadastro realizado com sucesso! Você será redirecionado para o login.');
+
+            // Redireciona para a página de login após o cadastro
+            window.location.href='entrar.html';
+        } else {
+            // Caso o 'required' falhe por algum motivo
+            alert('Por favor, preencha todos os campos.');
+        }
+    }
+</script>
+</html>

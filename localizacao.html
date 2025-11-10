@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Localização | CAFÉ para BAIANO</title>
+    <style>
+        /* Cores da Cafeteria:
+           - #f5f5dc: Bege Suave (Fundo)
+           - #a0522d: Marrom Médio (Destaque)
+           - #4b3621: Marrom Escuro (Texto/Título)
+        */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Estilo do corpo */
+        body {
+            background-color: #f5f5dc; /* Bege Suave */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 15px;
+        }
+
+        /* Cabeçalho - Reutilizado */
+        header {
+            background-color: #4b3621;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 1.8em;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Menu de Navegação */
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #f5f5dc;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #a0522d;
+        }
+        
+        /* Container Principal da Localização */
+        main {
+            background-color: #fff;
+            padding: 25px;
+            width: 100%;
+            flex-grow: 1;
+            border-radius: 10px;
+            box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            align-items: center;
+        }
+
+        main h2 {
+            color: #a0522d; /* Marrom Médio */
+            text-align: center;
+            font-size: 2em;
+        }
+
+        /* Contêiner do Mapa */
+        #map-container {
+            width: 100%;
+            max-width: 800px;
+            height: 300px;
+            background-color: #e0e0e0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            overflow: hidden; /* Para garantir que o mapa embedado caiba */
+        }
+        
+        /* Estilização para o texto dentro do contêiner do mapa (simulado) */
+        #map-container p {
+            color: #888;
+            font-style: italic;
+        }
+
+        /* Blocos de Informação (Endereço e Horário) */
+        .info-block {
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .info-block h3 {
+            color: #4b3621;
+            font-size: 1.3em;
+            border-bottom: 2px solid #a0522d;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+        
+        /* Lista de Horários */
+        .schedule-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Duas colunas */
+            gap: 8px;
+        }
+
+        .schedule-list li {
+            padding: 4px 0;
+            color: #4b3621;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .schedule-list strong {
+            color: #a0522d;
+        }
+        
+        /* Rodapé - Reutilizado */
+        footer {
+            background-color: #4b3621;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px 10px 0 0;
+            font-size: 0.8em;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CAFÉ para BAIANO</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Início</a></li>
+                <li><a href="cardapio.html">Cardápio</a></li>
+                <li><a href="localizacao.html" style="color: #a0522d;">Localização</a></li> <li><a href="entrar.html">Conta</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Onde Estamos e Quando Atendemos</h2>
+
+        <div id="map-container">
+            <p>
+                [Insira aqui o iframe do Google Maps]
+            </p>
+        </div>
+
+        <div class="info-block">
+            <h3>Endereço e Contato</h3>
+            <p>
+                <strong>Endereço:</strong> Rua da Amizade, 123 - Pelourinho<br>
+                Salvador, Bahia - CEP 40020-000
+            </p>
+            <p>
+                <strong>Telefone:</strong> (71) 98765-4321
+            </p>
+            <p>
+                <strong>E-mail:</strong> contato@cafeparabahiano.com
+            </p>
+        </div>
+
+        <div class="info-block">
+            <h3>Horário de Funcionamento</h3>
+            <ul class="schedule-list">
+                <li><span>Segunda:</span> <strong>08:00 - 18:00</strong></li>
+                <li><span>Terça:</span> <strong>08:00 - 18:00</strong></li>
+                <li><span>Quarta:</span> <strong>08:00 - 18:00</strong></li>
+                <li><span>Quinta:</span> <strong>08:00 - 18:00</strong></li>
+                <li><span>Sexta:</span> <strong>08:00 - 20:00</strong></li>
+                <li><span>Sábado:</span> <strong>09:00 - 16:00</strong></li>
+                <li><span>Domingo:</span> <strong style="color: #cc0000;">Fechado</strong></li>
+                <li><span>Feriados:</span> <strong style="color: #cc0000;">Consulte</strong></li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <p>Aguardamos sua visita no CAFÉ para BAIANO!</p>
+        <p>&copy; 2025 CAFÉ para BAIANO.</p>
+    </footer>
+</body>
+</html>

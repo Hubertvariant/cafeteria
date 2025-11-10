@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio | CAFÉ para BAIANO</title>
+    <style>
+        /* Cores da Cafeteria:
+           - #f5f5dc: Bege Suave (Fundo)
+           - #a0522d: Marrom Médio (Destaque)
+           - #4b3621: Marrom Escuro (Texto/Título)
+        */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Estilo do corpo */
+        body {
+            background-color: #f5f5dc; /* Bege Suave */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 15px;
+        }
+
+        /* Cabeçalho - Reutilizado da Home */
+        header {
+            background-color: #4b3621;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 1.8em;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Menu de Navegação */
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #f5f5dc;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #a0522d;
+        }
+        
+        /* Container Principal do Cardápio */
+        main {
+            background-color: #fff;
+            padding: 25px;
+            width: 100%;
+            flex-grow: 1;
+            border-radius: 10px;
+            box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        main h2 {
+            color: #a0522d; /* Marrom Médio */
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 2em;
+        }
+
+        /* Estilo para Categoria do Cardápio */
+        .category {
+            margin-bottom: 30px;
+            padding: 15px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .category h3 {
+            color: #4b3621; /* Marrom Escuro */
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            border-left: 5px solid #a0522d;
+            padding-left: 10px;
+        }
+
+        /* Layout de Grid para os Itens */
+        .items-grid {
+            display: grid;
+            /* Duas colunas em telas maiores, uma coluna em mobile */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        /* Estilo do Item Individual */
+        .item {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+        }
+        
+        .item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .item-details {
+            text-align: left;
+        }
+
+        .item-details h4 {
+            color: #4b3621;
+            margin-bottom: 3px;
+        }
+
+        .item-details p {
+            font-size: 0.9em;
+            color: #888;
+        }
+
+        .item-price {
+            font-weight: bold;
+            color: #a0522d; /* Marrom Médio para o preço */
+            font-size: 1.2em;
+        }
+        
+        /* Rodapé - Reutilizado da Home */
+        footer {
+            background-color: #4b3621;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px 10px 0 0;
+            font-size: 0.8em;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CAFÉ para BAIANO</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Início</a></li>
+                <li><a href="cardapio.html" style="color: #a0522d;">Cardápio</a></li> <li><a href="localizacao.html">Localização</a></li>
+                <li><a href="entrar.html">Conta</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Nosso Cardápio Completo</h2>
+
+        <div class="category">
+            <h3>☕ Cafés Especiais da Casa</h3>
+            <div class="items-grid">
+                <div class="item">
+                    <div class="item-details">
+                        <h4>Café com Leite de Coco</h4>
+                        <p>Nosso carro-chefe! Café coado com leite de coco cremoso.</p>
+                    </div>
+                    <span class="item-price">R$ 12,00</span>
+                </div>
+                <div class="item">
+                    <div class="item-details">
+                        <h4>Expresso Intenso</h4>
+                        <p>Grão selecionado do Sul da Bahia, torra média escura.</p>
+                    </div>
+                    <span class="item-price">R$ 8,00</span>
+                </div>
+                <div class="item">
+                    <div class="item-details">
+                        <h4>Cappuccino Cremoso</h4>
+                        <p>Café, leite vaporizado e chocolate em pó (opcional).</p>
+                    </div>
+                    <span class="item-price">R$ 14,00</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="category">
+            <h3>🍰 Doces e Acompanhamentos</h3>
+            <div class="items-grid">
+                <div class="item">
+                    <div class="item-details">
+                        <h4>Bolo de Rolo Fatiado</h4>
+                        <p>Clássico pernambucano com recheio de goiabada.</p>
+                    </div>
+                    <span class="item-price">R$ 10,00</span>
+                </div>
+                <div class="item">
+                    <div class="item-details">
+                        <h4>Cocada Cremosa</h4>
+                        <p>Doce de coco fresco, quente e macio.</p>
+                    </div>
+                    <span class="item-price">R$ 7,50</span>
+                </div>
+                <div class="item">
+                    <div class="item-details">
+                        <h4>Pudim de Leite Condensado</h4>
+                        <p>Tradicional, com calda de caramelo.</p>
+                    </div>
+                    <span class="item-price">R$ 11,00</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="category" style="border-bottom: none;">
+            <h3>🥖 Salgados da Manhã</h3>
+            <div class="items-grid">
+                <div class="item">
+                    <div class="item-details">
+                        <h4>Cuscuz Recheado</h4>
+                        <p>Cuscuz de milho com queijo coalho e carne seca.</p>
+                    </div>
+                    <span class="item-price">R$ 15,00</span>
+                </div>
+                <div class="item">
+                    <div class="item-details">
+                        <h4>Pão de Queijo Mineiro</h4>
+                        <p>Pão de queijo da receita tradicional.</p>
+                    </div>
+                    <span class="item-price">R$ 6,00</span>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Preços sujeitos a alteração. Para delivery, consulte a taxa de entrega.</p>
+        <p>&copy; 2025 CAFÉ para BAIANO.</p>
+    </footer>
+</body>
+</html>

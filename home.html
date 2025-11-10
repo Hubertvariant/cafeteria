@@ -3,64 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home page</title>
+    <title>Início | CAFÉ para BAIANO</title>
     <style>
-        *{
+        /* Cores da Cafeteria:
+           - #f5f5dc: Bege Suave (Fundo)
+           - #a0522d: Marrom Médio (Destaque)
+           - #4b3621: Marrom Escuro (Texto/Título)
+        */
+        
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        body{
-            background-color: rgb(144,100,30);
-            height: 100vh;
+
+        /* Estilo do corpo */
+        body {
+            background-color: #f5f5dc; /* Bege Suave */
+            min-height: 100vh; /* Use min-height para permitir rolagem */
             display: flex;
             flex-direction: column;
-            gap: 5px;
-        }
-        section{
-            background-color: #fff;
+            gap: 15px; /* Mais espaço entre header e section */
             padding: 15px;
-            width: 100%;
-            height: 70%;
-            border-radius: 15px;
-            box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: #4b3621; /* Marrom Escuro - Base do topo */
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             display: flex;
             flex-direction: column;
             gap: 10px;
             align-items: center;
-            text-align: left;
-        }
-        header{
-            background-color: black;
-            height: 20%;
-            border-radius: 0 0 15px 15px;
-            box-shadow: 1px 1px rgba(0, 0, 0, 0.4);
         }
 
-        header{
+        header h1 {
+            font-size: 1.8em;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Menu de Navegação */
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #f5f5dc; /* Link em Bege */
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: #a0522d; /* Marrom Médio no hover e ativo */
+        }
+        
+        /* Container Principal */
+        section {
+            background-color: #fff;
+            padding: 20px;
+            width: 100%;
+            flex-grow: 1; 
+            border-radius: 10px;
+            box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            align-items: center;
+            text-align: center;
+            max-width: 1200px; /* Limite a largura para melhor leitura */
+            margin: 0 auto;
+        }
+
+        /* Estilo dos blocos de conteúdo */
+        .content-block {
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .content-block h2 {
+            color: #a0522d;
+            margin-bottom: 10px;
+        }
+
+        .content-block p {
+            color: #4b3621;
+            line-height: 1.6;
+        }
+        
+        /* Estilo para a Área de Destaque (Hero/Banner) */
+        #featured-area {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+            /* Simulação de imagem de fundo */
+            background-image: linear-gradient(rgba(75, 54, 33, 0.6), rgba(75, 54, 33, 0.6)), url('placeholder_coffee_beans.jpg'); 
+            background-size: cover;
+            background-position: center;
+            color: white; /* Texto branco sobre o fundo escuro */
+            padding: 40px 20px;
+            border-radius: 10px;
+        }
+
+        #featured-area h2 {
+            color: #f5f5dc; /* Bege Suave para destaque */
+            font-size: 2.5em;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        #featured-area p {
+            color: white;
+            font-size: 1.1em;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Botão de Ação (CTA) */
+        .cta-button {
+            display: inline-block;
+            background-color: #a0522d;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        .cta-button:hover {
+            background-color: #c97c45;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #4b3621;
             color: white;
             text-align: center;
-            font-size: 25px;
+            padding: 10px;
+            border-radius: 10px 10px 0 0;
+            font-size: 0.8em;
+            margin-top: auto; 
         }
     </style>
 </head>
-<header>
-    <h1>CAFÉ para BAIANO</h1>
-    <nav>
-        
-    </nav>
-</header>
 <body>
+    <header>
+        <h1>CAFÉ para BAIANO</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html" class="active">Início</a></li>
+                <li><a href="cardapio.html">Cardápio</a></li>
+                <li><a href="localizacao.html">Localização</a></li>
+                <li><a href="conta.html">Conta</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <section>
-        <div>
-
+        <div id="featured-area" class="content-block">
+            <h2>Sabor e Tradição do Nordeste em Cada Xícara</h2>
+            <p>
+                Descubra a combinação perfeita de grãos selecionados e a autêntica hospitalidade baiana. Seja para um expresso rápido ou um doce tradicional, temos o que você precisa.
+            </p>
+            <a href="cardapio.html" class="cta-button">VER CARDÁPIO COMPLETO</a>
         </div>
-        <div>
 
+        <div class="content-block">
+            <h2>Novidades da Semana</h2>
+            <p>
+                🎉 **PROMOÇÃO:** Na compra de qualquer café grande, leve um pão de queijo da casa por apenas R$ 3,00. Válido apenas esta semana!
+            </p>
+        </div>
+        
+        <div class="content-block">
+            <h2>Nossa História</h2>
+            <p>
+                O CAFÉ para BAIANO nasceu do desejo de trazer os aromas e sabores do interior da Bahia para a cidade. Priorizamos ingredientes locais e o preparo artesanal, garantindo um café de altíssima qualidade e um ambiente acolhedor para todos os nossos clientes.
+            </p>
         </div>
     </section>
-</body>
-<footer>
 
-</footer>
+    <footer>
+        <p>&copy; 2025 CAFÉ para BAIANO. Todos os direitos reservados.</p>
+    </footer>
+</body>
 </html>

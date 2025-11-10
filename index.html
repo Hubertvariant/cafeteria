@@ -3,69 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entrar</title>
+    <title>Acessar Conta - Cafeteria</title>
     <style>
-    /* Reset básico */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/* Estilo do corpo */
-body {
-    background-color: rgb(144, 100, 30);
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, sans-serif;
-    font-size: 15px;
-}
+        /* Estilo do corpo */
+        body {
+            /* Fundo suave: um creme ou bege claro */
+            background-color: #f5f5dc; /* Cor 'Bege' */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Fonte mais amigável */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 16px;
+        }
 
-/* Container principal */
-section {
-    background-color: #fff;
-    padding: 15px;
-    width: 70%;
-    height: 60%;
-    border-radius: 15px;
-    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-    text-align: left;
-}
+        /* Container principal */
+        section {
+            background-color: #fff;
+            padding: 30px; /* Mais preenchimento */
+            width: 90%; /* Mais responsivo em mobile */
+            max-width: 400px; /* Limite em telas maiores */
+            border-radius: 10px;
+            box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1); /* Sombra mais destacada */
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Mais espaço entre os elementos */
+            align-items: center;
+            text-align: left;
+        }
 
-/* Título */
-section h1 {
-    text-align: center;
-}
+        /* Título */
+        section h1 {
+            text-align: center;
+            color: #4b3621; /* Marrom escuro (cor de café) */
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
 
-/* Formulário */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-}
+        /* Formulário */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
 
-/* Inputs e botões */
-form input{
-    width: 100%;
-    padding: 15px;
-    border-radius: 20px;
-    border: 2px solid rgba(144, 100, 30, 0.4);
-}
+        /* Inputs */
+        form input[type="email"], 
+        form input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
 
-/* Botão fora do formulário (se houver) */
-button {
-    width: 100%;
-    padding: 15px;
-    border-radius: 20px;
-    border: 2px solid rgba(144, 100, 30, 0.4);
-}
+        form input[type="email"]:focus, 
+        form input[type="password"]:focus {
+            border-color: #a0522d; /* Marrom médio no foco */
+            outline: none;
+            box-shadow: 0 0 5px rgba(160, 82, 45, 0.3);
+        }
+
+        /* Opções de Lembrete e Senha */
+        form > div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9em;
+        }
+
+        form > div a {
+            color: #a0522d; /* Marrom médio para links */
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        form > div a:hover {
+            color: #4b3621; /* Marrom escuro no hover */
+        }
+        
+        /* Checkbox */
+        form label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        form label input[type="checkbox"] {
+            margin-right: 5px;
+            /* Adicione estilização personalizada se desejar um checkbox diferente */
+        }
+
+        /* Estilo dos Botões (ENTRAR) */
+        form button[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: none;
+            background-color: #a0522d; /* Cor principal de ação: Marrom médio */
+            color: white;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        form button[type="submit"]:hover {
+            background-color: #4b3621; /* Marrom escuro no hover */
+        }
+
+        /* Botão fora do formulário (CADASTRAR) */
+        section button {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            /* Estilo de botão secundário, mais discreto */
+            border: 1px solid #a0522d;
+            background-color: transparent;
+            color: #a0522d;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 5px; /* Espaço para separar do botão de ENTRAR */
+        }
+
+        section button:hover {
+            background-color: #a0522d;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -81,19 +158,31 @@ button {
                 </label>
                 <a href="#" class="forgot-password">Esqueceu a senha?</a>
             </div>
-            <button type="submit" onclick="loginEntrar()">ENTRAR</button>
+            <button type="submit" onclick="loginEntrar(event)">ENTRAR</button>
         </form>
         <button onclick="window.location.href='cadastro.html'">CADASTRAR</button>
     </section>
 </body>
 <script>
-    function loginEntrar(){
+    // Alteração: Recebendo o objeto 'event'
+    function loginEntrar(event){
+        // 1. Previne o comportamento padrão do formulário (recarregar a página)
+        event.preventDefault(); 
+
         const email = window.document.querySelector('input#login-email').value
         const password = window.document.querySelector('input#login-password').value
 
-        if(email != '' && password != ''){
-            window.location.href='home.html'
-            console.log('entrou')
+        // 2. Validação simples
+        if(email !== '' && password !== ''){ 
+            // Em um projeto real, aqui você enviaria os dados para o servidor
+            console.log('Tentativa de login com:', email);
+            
+            // Simulação de login bem-sucedido
+            window.location.href='home.html';
+        } else {
+            // Caso o formulário esteja incompleto (embora o 'required' já ajude)
+            alert('Por favor, preencha E-mail e Senha para continuar.');
+            console.log('Login bloqueado: campos vazios.');
         }
     }
 </script>
